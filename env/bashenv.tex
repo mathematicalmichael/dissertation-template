@@ -1,0 +1,44 @@
+
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttbb}{T1}{txtt}{bx}{n}{10} % for bold
+\DeclareFixedFont{\ttmm}{T1}{txtt}{m}{n}{10}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Bash style for highlighting
+\newcommand\bashstyle{\lstset{
+language=Bash,
+basicstyle=\ttmm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttbb\color{deepblue},
+emph={python},          % Custom highlighting
+emphstyle=\ttbb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            %
+}}
+
+
+% Bash environment
+\lstnewenvironment{bash}[1][]
+{
+\bashstyle
+\lstset{#1}
+}
+{}
+
+% Bash for external files
+\newcommand\bashexternal[2][]{{\hbox{
+\bashstyle
+\lstinputlisting[#1]{#2}}\vspace{0.25in}}}
+
+% Bash for inline
+\newcommand\bashinline[1]{{\bashstyle\lstinline!#1!}}

@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% newcommands.tex
+
+% itemize with the explaining text left justified afer the item
+% Example:
+%   \itembox{CNR} The Control net reduction
+%   \itembox{A} Another item
+% renders as
+% * CNR   The Control net reduction
+% * A     Another item
+\newcommand{\itembox}[1]{\item {\makebox[0.25in]{#1 \hfill}}}
+
+% Abbreviations
+\newcommand{\ie}{{\itshape i.e.}}
+\newcommand{\eg}{{\itshape e.g.}}
+
+% Bold symbols
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+
+% Cardinality
+\newcommand{\card}[1]{n\left(#1\right)} %{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\nullset}{\varnothing}
+
+% Math Operators
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\mat}[2]{\left[\begin{array}{#1}#2\\ \end{array}\right]}
+
+% Standard Probability
+\DeclareMathOperator{\E}{\mathbb{E}}
+% Measure
+\newcommand{\PP}{\mathbb{P}}
+% Density
+\newcommand{\pp}{\pi}
+% Space of measures/solutions
+\newcommand{\PPspace}{\mathcal{P}}
+
+
+% indices into sets/spaces
+\newcommand{\iparam}{i} % index into parameter space (num samples)
+\newcommand{\imesh}{h} % index into mesh/model refinement sequence
+\newcommand{\iobs}{k} % index into QoI
+\newcommand{\idisc}{k} % index into output discretization
+\newcommand{\idata}{j} % index into data (target)
+
+% Sets/Spaces
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathcal{O}} % sets of indices for set-based inversion alg
+\renewcommand{\LL}{\mathcal{L}} % transverse parameterization
+\newcommand{\VV}{\mathcal{V}} % voronoi
+\newcommand{\BB}{\mathcal{B}} % borel
+
+\newcommand{\CC}{\mathcal{C}} % contour symbol
+\newcommand{\cborel}{\CC_{\pspace}} % contour sigma algebra
+\DeclareMathOperator*{\contourP}{\PP_{\cborel}}
+
+\newcommand{\paramP}{\PP_\pspace}
+\newcommand{\dataP}{\observedP}
+
+\newcommand{\nparams}{P}
+\newcommand{\RP}{\RR^\nparams} % parameter space dimensions
+\newcommand{\nsamps}{N} % num samples
+
+\newcommand{\ndata}{D} % num data points collected for each observable
+\newcommand{\RD}{\RR^\ndata} % data space dimensions
+
+% Sample-Based
+\newcommand{\nobs}{O} % number of observables
+\newcommand{\RO}{\RR^\nobs} % qoi data space dimensions
+
+% Set-Based
+\newcommand{\ndiscs}{M} % number of cells used to discretize data space
+
+\newcommand{\sa}{\sigma\text{-algebra}}
+\newcommand{\Chi}{\mbox{\LARGE$\chi$}}
+
+\newcommand{\Rho}{\mbox{\LARGE$\rho$}}
+\newcommand{\Nu}{\mbox{\Large$\nu$}}
+
+\newcommand{\true}{\dagger}
+% Data-Consistent Inversion Framework
+\newcommand{\dimP}{P}
+\newcommand{\dimD}{D}
+\newcommand{\param}{\lambda}
+\newcommand{\paramref}{\param^\true}
+\newcommand{\pspace}{{\Lambda}}
+\newcommand{\pmeas}{\mu_{\pspace}}
+\newcommand{\pborel}{\BB_{\pspace}}
+\newcommand{\Pspace}{(\pspace, \pborel, \pmeas)}
+
+\DeclareMathOperator*{\initialP}{\PP_{in}}
+\DeclareMathOperator*{\initial}{\pp_{in}}
+\DeclareMathOperator*{\updatedP}{\PP_{up}}
+\DeclareMathOperator*{\updated}{\pp_{up}}
+
+\DeclareMathOperator*{\obs}{\boldsymbol{o}}
+\DeclareMathOperator*{\data}{\boldsymbol{d}}
+\newcommand{\dspace}{\mathcal{D}}
+\newcommand{\dmeas}{\mu_{\dspace}}
+% \newcommand{\dmeas}{\predictedP}
+\newcommand{\dborel}{\BB_{\dspace}}
+\newcommand{\Dspace}{(\dspace, \dborel, \dmeas)}
+\newcommand{\Ospace}{(\dspace, \dborel, \dataP)}
+
+
+% Labeled QoI maps
+\newcommand{\qoiA}{\qoi^{(a)}}
+\newcommand{\qoiB}{\qoi^{(b)}}
+\newcommand{\qoiC}{\qoi^{(c)}}
+\newcommand{\dspaceA}{\dspace_{\qoiA}}
+\newcommand{\dspaceB}{\dspace_{\qoiB}}
+
+\newcommand{\qspace}{\mathcal{Q}}
+\newcommand{\lam}{\left ( \param \right ) }
+\newcommand{\qoi}{Q}
+\newcommand{\qlam}{\qoi\lam}
+\newcommand{\q}{\left ( \qlam \right )}
+% Model M(u, param) = 0
+\newcommand{\M}{\mathcal{M}}
+
+\DeclareMathOperator*{\observedP}{\PP_{ob}}
+\DeclareMathOperator*{\observed}{\pp_{ob}}
+\DeclareMathOperator*{\predictedP}{\PP_{pr}}
+\DeclareMathOperator*{\predicted}{\pp_{pr}}
+
+\DeclareMathOperator*{\dciP}{\updatedP = \initialP \frac{\observedP}{\predictedP}}
+\DeclareMathOperator*{\dciD}{\updated = \initial \frac{\observed}{\predicted}}
+\DeclareMathOperator*{\dci}{\updated\lam = \initial\lam \frac{\observed\qlam}{\predicted\qlam}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems
+\usepackage[english]{babel}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{assumption}{Assumption}[section]
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{ex}{Example}
+\numberwithin{equation}{section}
+\newtheorem{prob}{Problem}
+\numberwithin{equation}{section}
+%
+
+
+%%% stuff from proposal to sort out later %%%
+\newcommand{\sett}[3]{\left\{#1\right\}_{#2}^{#3}}
+\newcommand{\supp}{\text{supp}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+
+\newcommand{\updatedPxN}{\PP_{\pspace,\nsamps}^\true}
+\newcommand{\updatedPxNN}{\PP_{\pspace,\bar{\nsamps}}^\true}
+\newcommand{\updatedPxM}{\PP_{\pspace,\ndiscs}^\true}
+\newcommand{\updatedPxNM}{\PP_{\pspace,\nsamps,\ndiscs}^\true}
+\newcommand{\updatedPxNMh}{\PP_{\pspace,\nsamps,\ndiscs,\imesh}^\true}

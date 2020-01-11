@@ -1,0 +1,69 @@
+\chapter*{\uppercase{Abbreviations and Notation} \label{appendix-notation}}
+
+\section{Abbreviations}
+
+\begin{description}[leftmargin=!,labelwidth=0.5in,font=\normalfont]
+	\item
+\end{description}
+
+
+\section{Mathematical Notation}
+\begin{description}[leftmargin=!,labelwidth=0.5in,font=\normalfont]
+	\item
+\end{description}
+
+
+\subsection{General Notation}
+
+% EDIT BELOW AND REMOVE WHAT YOU DO NOT NEED
+\begin{description}[leftmargin=!, labelwidth=0.7in]
+  \item[$x$]             italicized, Roman or Greek letter, denotes scalar values
+  \item[$\bs{x}$]        italicized, bold, lowercase Roman or Greek letter, denotes a column vector
+  \item[$\bs{X}$]        italicized, bold, uppercase Roman or Greek letter, denotes a matrix
+	\item[$\bs{X}_{ij}$] 	 denotes the component of matrix $\bs{X}$ occupying row $i$ and column $j$
+
+  \item[$x \in (a, b)$]  the value $x$ is within the interval such that $a < x < b$
+  \item[{$x \in (a, b]$}]  the value $x$ is within the interval such that $a < x \leq b$
+  \item[$x \in [a, b)$]  the value $x$ is within the interval such that $a \leq x < b$
+  \item[{$x \in [a, b]$}]  the value $x$ is within the interval such that $a \leq x \leq b$
+  \item[$1_{A}\left(x\right)$] the indicator function,\[1_{A}\left(x \right) = \begin{cases} 1 & x \in A \\ 0 & x \notin A \end{cases}.\]
+  \item[$\bs{1}_n$] an column vector of $n$ $1$s
+  \item[$\bs{I}$] the identity matrix
+  \item[$\bs{I}_n$] the $n \times n$ identity matrix
+  \item[$\bs{X}^{-1}$] the inverse matrix, i.e., the operator satisfying $\bs{X}^{-1} \bs{X} = \bs{X} \bs{X}^{-1} = \bs{I}.$
+  \item[$\bs{X}^{\top{T}}$] transpose, i.e. the operator satisfying $X_{i,j} = X_{j, i} \; \forall \; i,j \in \mathbb{N}$
+  \item[$\otimes$] Kronecker product
+  \item[$\odot$] element-wise multiplication
+\end{description}
+
+\subsection{Sets}
+
+\begin{description}[leftmargin=!, labelwidth=0.8in]
+  \item[$\set{x, y, z, \ldots}$]  the set comprising the elements of $x,$ $y,$ $z,$ $\ldots$
+  \item[$\set{x, y, z} \backslash x$]  the set comprising the elements of $y$ and $z$\footnote{In other words, the backslash removes an element (or a subset) from the original set.}
+  \item[$\sett{x_i}{i = 1}{n}$]  the set comprising the elements of $x_1, x_2, x_3, \ldots, x_n$
+  \item[$\RR$] set of real numbers
+	\item[$\NN$] set of natural numbers
+  \item[$\bs{x} \in \mathbb{R}^n$] $\bs{x}$ is a vector with $n$ elements, all of which are real numbers
+\end{description}
+
+\subsection{Statistical Distributions}
+\begin{description}[leftmargin=!, labelwidth=0.8in]
+  \item[$\mathcal{N} \left( \mu, \sigma^2 \right)$] the uni-variable Gaussian distribution with mean $\mu$ and variance $\sigma^2$
+  \item[$\mathcal{N} \left( \bs{\mu}, \bs{\Sigma} \right)$] the multi-variable Gaussian distribution with mean vector $\bs{\mu}$ and variance-covariance matrix $\bs{\Sigma}$
+  \item[$\phi(x)$] the standard Gaussian density function
+\end{description}
+
+\subsection{Specialized Notation}
+This notation refers to values defined explicitly in the context of this thesis.
+
+\begin{itemize}
+\itembox{$\M$} a model that takes input parameters to an (observable) state space
+\itembox{$u$} an observable state space from which data is to be collected
+\itembox{$\param$} a (model) parameter into model $\M$
+\itembox{$\obs$} a Parameter-to-Observables (PtO) map, also denoted $\obs( u\lam )$ or $\obs\lam$, each component of which is a functional  $\obs_i: u\lam \to \RR$ on the observable state\footnote{This map represents performing an individual experiment, which may consist of one or more observations (either in space or time). Arranging observational data into a vector defines the map.}
+\itembox{$\qoi$} a Quantity of Interest (QoI) map, also denoted $\qlam$, which acts on observable data to transform the data into a scalar or vector quantity\footnote{For example, it may be the average of measurements encompassed in $\obs$. Technically, this map encompasses the following set of compositions: $Q(\obs(u\lam))$.}
+\itembox{$\data$} data representing an individual output of a (possibly vector-valued) QoI map for a particular parameter $\param$, i.e. $\qlam = \data$
+\end{itemize}
+
+[TK - add Measure-Theory notation into this section, based on what you have in your newcommands.tex file]

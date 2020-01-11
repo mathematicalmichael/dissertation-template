@@ -1,0 +1,4 @@
+#!/bin/sh
+IMAGE_NAME=mathematicalmichael/latex
+COMMAND=chktex
+docker run --rm -i -v $(pwd):$(pwd) -w $(pwd) $IMAGE_NAME $COMMAND $@

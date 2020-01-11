@@ -1,0 +1,4 @@
+#!/bin/sh
+IMAGE_NAME=python:thesis
+COMMAND=python
+docker run --rm -v $(pwd):/tmp -w /tmp $IMAGE_NAME $COMMAND $@

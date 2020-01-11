@@ -1,0 +1,117 @@
+% ---------------------------------------------------------------------------- %
+% file: disseration.tex
+% author: Michael Pilosov
+%
+% LaTeX based on work by Sarah Kreidler and Peter DeWitt
+% (github.com/dewittpe/ucd-dissertation-template)
+%
+%
+% ---------------------------------------------------------------------------- %
+
+\documentclass[english,10pt]{ucdenver-dissertation}
+\input{env/usepackages}
+\input{env/newcommands}
+\input{env/pythonenv}
+% enables the following:
+% \pythonexternal{demo.py}
+% \begin{python}-\end{python}
+% \pythoninline{import bet}
+\input{env/bashenv}
+% enables the same functions, but with bash.
+\usepackage{lipsum}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\renewcommand{\floatpagefraction}{0.7}%
+
+% Draft and Time stamp in the header and footer.
+\usepackage{fancyhdr}
+\usepackage{datetime}
+
+% ---------------------------------------------------------------------------- %
+% FRONT MATTER
+
+\makeatletter
+\title{SOME CLEVER TITLE}
+\authorLast{LAST NAME}
+\authorFirst{FIRST NAME}
+\authorMiddle{}
+\education{
+B.S., University of Colorado: Denver, YYYY
+M.S., University of Colorado: Denver, YYYY
+}
+\school{University of Colorado: Denver, College of Liberal Arts and Sciences}
+\program{Applied Mathematics}
+\date{2019}
+\submitDate{DD MM YYYY}
+
+\advisor{Dr.~One One}
+\advisorTitle{Assistant Professor}
+
+\committeeChair{Dr.~Two Two}
+\committeeMembers{
+Dr.~Three Three \\
+Dr.~Four Four \\
+Dr.~Five Five
+}
+
+% dedication - this is also optional
+\dedication{DEDICATION}
+
+% preface
+\preface{
+\input{abstract.tex}
+\input{notation.tex}
+}
+
+% acknowledgement - this is optional
+\acknowledgements{
+  Thanks.
+}
+
+\usepackage{mathtools} % for \xmapsto
+\usepackage{array}
+\renewcommand\arraystretch{0.5}
+
+\makeatother
+
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+% Begin Document
+\begin{document}
+\chead{\color{red} DRAFT. Last compiled at \currenttime \ on \today }
+
+\input{chapter01}
+\input{chapter02}
+% \input{chapter03}
+% \input{chapter04}
+% \input{chapter05}
+
+% ---------------------------------------------------------------------------- %
+\renewcommand\bibname{REFERENCES}
+\singlespacing
+
+\nocite{*}
+\bibliographystyle{ref/ucdDissertation}
+\bibliography{ref/references,ref/references-code}
+
+\doublespacing
+
+% ---------------------------------------------------------------------------- %
+% DeWitt: had to do some TOC shenanigans, so please use the ucdappendix command
+% instead of regular old \appendix
+\ucdappendix
+
+%\input{notation.tex}
+
+% ---------------------------------------------------------------------------- %
+% additional appendices
+\input{ch01/appendix}
+\input{ch02/appendix}
+%\input{ch03/appendix}
+%\input{ch04/appendix}
+%\input{ch05/appendix}
+
+% ---------------------------------------------------------------------------- %
+\end{document}
+% ---------------------------------------------------------------------------- %

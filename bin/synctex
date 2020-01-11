@@ -1,0 +1,4 @@
+#!/bin/sh
+IMAGE_NAME=mathematicalmichael/latex
+COMMAND=synctex
+docker run --rm -i -v $(pwd):$(pwd) -w $(pwd) $IMAGE_NAME $COMMAND "$@"

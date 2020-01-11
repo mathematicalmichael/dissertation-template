@@ -1,0 +1,4 @@
+#!/bin/sh
+IMAGE_NAME=mathematicalmichael/latex
+COMMAND=make
+docker run --rm -v $(pwd):/tmp -w /tmp $IMAGE_NAME $COMMAND $@
