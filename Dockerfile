@@ -1,36 +1,38 @@
-#FROM python:3.7-slim
-FROM quay.io/fenicsproject/stable:current
-USER root
+FROM ubuntu:latest
 RUN apt-get update && \
-    apt-get install -y \
-    tree \
-    git \
-    ;
+    apt-get install -y --no-install-recommends \
+    texlive-base \
+    texlive-latex-base \
+    texlive-latex-extra \
+    texlive-fonts-recommended \
+    texlive-fonts-extra
 
-RUN apt-get clean && \
-    rm -rf /tmp/
-    
-# bet
-WORKDIR /tmp
-RUN cd /tmp && \
-    git clone --single-branch --branch sample https://github.com/mathematicalmichael/BET.git --depth=1 && \
-    cd BET && \
-    pip install .
-
-RUN pip install \
-    pyprind  \
-    autopep8 \
-    black \
-    ;
-
-# parallelism
 RUN apt-get install -y \
-    gfortran \
-    libblas-dev \
-    liblapack-dev \
-    mpich \
-    libmpich-dev
+    latexmk
+
+# make
+RUN apt-get install -y \
+    build-essential
+
+# extras
+#RUN apt-get install -y \
+    #dvipng \
+    #ghostscript \
+    #fonts-dejavu \
+    #texlive \
+    #texlive-latex-recommended \
+    #texlive-science \
+    
+# poster
+RUN apt-get install -y \
+    fonts-lato \
+    lmodern \
+    context \
+    texlive-luatex \
+    ;    
+RUN context --generate && \
+    mtxrun --script fonts --reload
 
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-        && apt-get autoremove -y
+    && apt-get autoremove -y
