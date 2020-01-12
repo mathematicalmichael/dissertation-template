@@ -1,4 +1,4 @@
 #!/bin/sh
 IMAGE_NAME=mathematicalmichael/latex
 COMMAND=latexmk
-docker run --rm -i -v $(pwd):$(pwd) -w $(pwd) $IMAGE_NAME $COMMAND $@
+docker run --rm -i -v $(pwd):$(pwd) -w $(pwd) $IMAGE_NAME $COMMAND "$@"
