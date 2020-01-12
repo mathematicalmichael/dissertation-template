@@ -8,31 +8,11 @@ RUN apt-get update && \
     texlive-fonts-extra
 
 RUN apt-get install -y \
-    latexmk
-
-# make
-RUN apt-get install -y \
+    latexmk \
     build-essential
-
-# extras
-#RUN apt-get install -y \
-    #dvipng \
-    #ghostscript \
-    #fonts-dejavu \
-    #texlive \
-    #texlive-latex-recommended \
-    #texlive-science \
-    
-# poster
-RUN apt-get install -y \
-    fonts-lato \
-    lmodern \
-    context \
-    texlive-luatex \
-    ;    
-RUN context --generate && \
-    mtxrun --script fonts --reload
 
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get autoremove -y
+
+CMD ['bash']

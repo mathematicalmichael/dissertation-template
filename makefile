@@ -37,7 +37,7 @@ DEPS := \
 
 # targets that are labeled as PHONY are treated as always needing an update
 # a file doesn't actually need to exist for it to run
-.PHONY: all clean
+.PHONY: all clean upload full_image latex_image python_image
 
 # the first real target is the one used when no other arguments are passed to `make`
 # by creating a dependency on the pdf, we trigger a compilation by default.
@@ -51,3 +51,22 @@ clean:
 	latexmk -c $(FILENAME).tex
 	/bin/rm -f *.spl
 	/bin/rm -f *.bbl
+
+# bare-bones dependencies to build image
+latex_image: Dockerfile
+	docker build -t latex:minimal -f Dockerfile .
+	docker tag latex:minimal latex:latest
+
+# extras to build posters/graphics
+full_image: Dockerfile-full latex_image
+	docker build -t latex:full -f Dockerfile-full .
+
+upload: full_image
+	docker tag latex:full mathematicalmichael/latex:latest
+	docker push mathematicalmichael/latex:latest 
+	docker tag latex:full latex:latest
+	docker rmi latex:full
+	docker rmi latex:minimal
+
+python_image: Dockerfile-python
+	docker build -t python:thesis -f Dockerfile-python .
