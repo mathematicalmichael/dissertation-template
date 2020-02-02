@@ -47,5 +47,6 @@ WORKDIR /tmp
 # overwrite default python from fenics container
 RUN ln -f /usr/bin/python3 /usr/bin/python
 RUN ln -f /usr/local/bin/pip3 /usr/local/bin/pip
+RUN rm -rf tmp/*
 ENTRYPOINT 
 CMD ["python3"]

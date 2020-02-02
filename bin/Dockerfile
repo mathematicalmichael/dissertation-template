@@ -5,13 +5,11 @@ RUN apt-get update && \
     texlive-latex-base \
     texlive-latex-extra \
     texlive-fonts-recommended \
-    texlive-fonts-extra
-
-RUN apt-get install -y \
+    texlive-fonts-extra \ 
+    texlive-science \
     latexmk \
-    build-essential
-
-RUN apt-get clean \
+    build-essential \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get autoremove -y
 
