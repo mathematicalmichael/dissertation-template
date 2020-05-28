@@ -29,9 +29,10 @@ This makes your current shell session aware of the files we just moved (we could
 > If you add this line to `~/.bash_profile` (on macOS; it is `~/.bashrc` in Linux), the programs will be accessible from any shell session. 
 
 You can skip copying the files if you only plan to use them within this project folder:
+
 ```
 ./bin/dmake
-``
+```
 
 Moving them to somewhere in your path means you can just run the commands from anywhere on your computer. If you plan to use an IDE (Atom, TexMaker, etc), then the contents need to be in your `PATH` variable.
 
