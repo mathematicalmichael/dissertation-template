@@ -1,0 +1,31 @@
+name: Docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Use docker to handle dependencies and prepend executables to PATH
+    - name: Pull + retag docker images for LaTeX dependencies (ubuntu:latest)
+      run: |        
+        docker pull mathematicalmichael/latex:thesis
+        docker tag mathematicalmichael/latex:thesis latex:thesis
+
+    - name: Set up PATH for binaries
+      run: echo "::add-path::$(pwd)/bin"
+
+    - name: Compile thesis with latexmk (docker-based)
+      run: make
+ 
+    - name: Test bin/ contents compilation
+      run: |
+        cd bin && make all
+  
