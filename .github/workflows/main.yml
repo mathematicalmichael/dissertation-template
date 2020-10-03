@@ -17,11 +17,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Pull + retag docker images for LaTeX dependencies (ubuntu:latest)
+    - name: LaTeX dependencies (ubuntu:latest)
       run: |
-        apt-get -qq update
-        apt-get install -y texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
-        apt-get install -y latexmk
+        sudo apt-get -qq update
+        sudo apt-get install -y texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+        sudo apt-get install -y latexmk
 
     - name: Compile thesis with latexmk
       run: make
