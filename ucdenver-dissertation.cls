@@ -57,6 +57,8 @@
 \newcommand{\program}[1]{\def\@program{#1}}
 \newcommand{\advisor}[1]{\def\@advisor{#1}}
 \newcommand{\advisorTitle}[1]{\def\@advisorTitle{#1}}
+\newcommand{\coadvisor}[1]{\def\@coadvisor{#1}}
+\newcommand{\coadvisorTitle}[1]{\def\@coadvisorTitle{#1}}
 \newcommand{\committeeChair}[1]{\def\@committeeChair{#1}}
 \newcommand{\committeeMembers}[1]{\def\@committeeMembers{#1}}
 \newcommand{\submitDate}[1]{\def\@submitDate{#1}}
@@ -134,11 +136,12 @@
     \@program\ Program \\
     by \\[3in]
     \@committeeChair, Chair \\
-    \@advisor, Advisor \\
+    \@advisor, Co-Advisor \\
+    \@coadvisor, Co-Advisor \\
     \@committeeMembers \\[1in]
   \end{center}
   \begin{flushright}
-    Date \underline{\@submitDate}
+    Date: \@submitDate
   \end{flushright}
   \vspace*{\fill}
 }
@@ -148,20 +151,21 @@
   \newpage
   \begin{flushleft} 
   \@authorLast{}, \@authorFirst{} \@authorMiddle{} (Ph.D., \@program) \\
-  { \doublespacing \@title \par Thesis directed by \@advisorTitle{} \@advisor \par }
+  { \doublespacing \@title \par Thesis directed by \@advisorTitle{} \@advisor\ and \@coadvisorTitle \@coadvisor \par }
   \end{flushleft}
   \medskip
   \begin{center}
   {\bf ABSTRACT}\\
   \end{center} 
   \hskip \parindent
+  \raggedright   %%%%%%%% Needed to add this in to get ragged right edges in abstract (JH)
   {\doublespacing \@preface \par }
   \vfill
   \begin{flushright}
-  The form and content of this abstract are approved. I recommend its publication.
+  The form and content of this abstract are approved. We recommend its publication.
   \end{flushright}
   \begin{flushright}
-  \hfill Approved: \@advisor
+  \hfill Approved: \@advisor\ and \@coadvisor
   \end{flushright}
 }
 
@@ -213,13 +217,13 @@
 
 %% hyperlink formatting
 \hypersetup{%
-    hyperindex = {true},
+    %hyperindex = {true}, %unnecessary. (JH)
     colorlinks = {true},
     linktocpage = {true},
     plainpages = {false},
-    linkcolor = {blue},
-    citecolor = {blue},
-    urlcolor = {blue},
+    linkcolor = {black},   %changed link color, cite color, and url color to black, as required (JH)
+    citecolor = {black},
+    urlcolor = {black},
     pdfstartview = {Fit},
     pdfpagemode = {UseOutlines},
     pdfview = {XYZ null null null}
@@ -227,7 +231,9 @@
 \urlstyle{same}
 
 %% table of contents 
+\setcounter{tocdepth}{3} % needed to add this to get subsubsection level to appear... (JH)
 \renewcommand{\@tocrmarg}{2.55em plus1fil}
+
 \renewcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
@@ -248,10 +254,9 @@
     \endgroup
   \fi}
 
-
 \renewcommand*\l@section{\vspace{12pt}\@dottedtocline{1}{1.5em}{2.3em}}
 \renewcommand*\l@subsection{\vspace{12pt}\@dottedtocline{2}{3.0em}{3.2em}}
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+\renewcommand*\l@subsubsection{\vspace{12pt}\@dottedtocline{3}{4.5em}{4.1em}} % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout (JH)
 \renewcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \renewcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 
@@ -423,9 +428,9 @@
 % subsubsection
 \newcommand{\ucdsubsubsec}[2][default]{%
   \refstepcounter{subsubsection}%
-  \addcontentsline{toc}{subsubsection}{\thesubsubsection\space #1}
-  {\@afterindentfalse\@afterheading\singlespacing\normalsize\textbf{\thesubsubsection\space #2}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \addcontentsline{toc}{subsubsection}{\hspace{7em}\thesubsubsection\space #1} %added in hspace{7em} (JH)
+  {\@afterindentfalse\@afterheading\singlespacing\normalsize\textit{\thesubsubsection\space #2}} \nopagebreak
+  \vskip \postSskip \nopagebreak} %changed from boldfaced to italicized font -- as required (JH)
 \newcommand{\ucdsubsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing{\normalsize\textbf #1}} \nopagebreak
   \vskip \postSskip \nopagebreak}
