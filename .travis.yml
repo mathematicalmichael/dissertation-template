@@ -8,6 +8,7 @@ before_install:
   - sudo apt-get install latexmk
 
 script:
+  - make
   - make clean
   - make -B
 
