@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: 
+      - '*'
+  schedule:
+      - cron: "0 0 */7 * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Pull + retag docker images for LaTeX dependencies (ubuntu:latest)
+      run: |
+        apt-get -qq update
+        apt-get install -y texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+        apt-get install -y latexmk
+
+    - name: Compile thesis with latexmk
+      run: make
+
+    - name: Clean up TeX build files
+      run: make clean
