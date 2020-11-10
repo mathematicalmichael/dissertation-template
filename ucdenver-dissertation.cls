@@ -32,9 +32,10 @@
 \LoadClass[10pt]{report}
 
 %% required packages
-\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0.25in]{geometry}
-\RequirePackage[font=singlespacing]{caption}
+\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0in]{geometry}
+\RequirePackage[font=singlespacing, width = 0.8\textwidth, justification=centering, labelsep=colon]{caption}
 \RequirePackage[raggedright]{titlesec}
+
 
 \RequirePackage{setspace,savesym,amsmath,amsthm,amsfonts,graphicx,color,hyperref,extramarks,lastpage,chngpage}
 
@@ -67,12 +68,15 @@
 \newcommand{\preface}[1]{\def\@preface{#1}}
 
 
+
+
 %% numbering for theorems
 \newcounter{theorem}
 \newcounter{lemma}
 
 %% set margins
 \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
 
 \pagestyle{fancy} %
 \fancyhf{} %
@@ -136,8 +140,7 @@
     \@program\ Program \\
     by \\[3in]
     \@committeeChair, Chair \\
-    \@advisor, Co-Advisor \\
-    \@coadvisor, Co-Advisor \\
+    \@advisor, Co-Advisor \\ % \@coadvisor, Co-Advisor \\  %% Start new line and then turn on for co-advisors!
     \@committeeMembers \\[1in]
   \end{center}
   \begin{flushright}
@@ -151,21 +154,20 @@
   \newpage
   \begin{flushleft} 
   \@authorLast{}, \@authorFirst{} \@authorMiddle{} (Ph.D., \@program) \\
-  { \doublespacing \@title \par Thesis directed by \@advisorTitle{} \@advisor\ and \@coadvisorTitle \@coadvisor \par }
+  { \doublespacing \@title \par  Thesis directed by \@advisorTitle{} \@advisor\ \par} % and \@coadvisorTitle{} \@coadvisor\ \par } %% Turn on for co-advisors!
   \end{flushleft}
-  \medskip
+  %\medskip
   \begin{center}
   {\bf ABSTRACT}\\
   \end{center} 
-  \hskip \parindent
-  \raggedright   %%%%%%%% Needed to add this in to get ragged right edges in abstract (JH)
+   \raggedright %%%%%%%% Needed to add this in to get ragged right edges in abstract (JH)
   {\doublespacing \@preface \par }
   \vfill
   \begin{flushright}
   The form and content of this abstract are approved. We recommend its publication.
   \end{flushright}
   \begin{flushright}
-  \hfill Approved: \@advisor\ and \@coadvisor
+  \hfill Approved: \@advisor\ % and \@coadvisor %% Turn on for co-advisors!
   \end{flushright}
 }
 
@@ -176,7 +178,8 @@
   \begin{center}
   {\bf ACKNOWLEDGEMENTS} \\
   \end{center}
-  \hskip \parindent { \doublespacing \@acknowledgements }
+  %\hskip \parindent 
+  { \doublespacing \@acknowledgements }
 \fi
 }
 
@@ -221,9 +224,9 @@
     colorlinks = {true},
     linktocpage = {true},
     plainpages = {false},
-    linkcolor = {black},   %changed link color, cite color, and url color to black, as required (JH)
-    citecolor = {black},
-    urlcolor = {black},
+    linkcolor = {blue},  % change to black later
+    citecolor = {blue},  % change to black later
+    urlcolor = {blue},   % change to black later
     pdfstartview = {Fit},
     pdfpagemode = {UseOutlines},
     pdfview = {XYZ null null null}
@@ -368,9 +371,9 @@
 \setlength{\preXLskip}{1.8\baselineskip plus 0.5ex minus 0ex}
 \setlength{\preLskip}{1.5\baselineskip plus 0.3ex minus 0ex}
 \setlength{\preMskip}{1\baselineskip plus 0.2ex minus 0ex}
-\setlength{\preSskip}{.8\baselineskip plus 0.2ex minus 0ex}
+\setlength{\preSskip}{-.25cm}%{.8\baselineskip plus 0.2ex minus 0ex} -- not actually called (J)
 \setlength{\postMskip}{.5\baselineskip plus 0ex minus 0.1ex}
-\setlength{\postSskip}{.3\baselineskip plus 0ex minus 0.1ex}
+\setlength{\postSskip}{0cm}%{.3\baselineskip plus 0ex minus 0.1ex} 
 
 \newcounter {chapternn}
 \renewcommand \thechapternn {\@arabic\c@chapternn}
@@ -402,9 +405,11 @@
 \newcommand{\ucdpartnn}[1]{\newpage%
   \addcontentsline{toc}{part}{#1}
   {\@afterindentfalse\@afterheading\singlespacing\textbf{\Huge #1}} \nopagebreak
-  \vskip \postMskip \nopagebreak}
+  \vskip \postMskip \nopagebreak
+}
 
 % section
+
 \newcommand{\ucdsec}[2][default]{%
   \refstepcounter{section}%
   \addcontentsline{toc}{section}{\hspace{3em}\thesection\space #1}
@@ -413,7 +418,8 @@
   }
 \newcommand{\ucdsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing\textbf{#1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 % subsection
 \newcommand{\ucdsubsec}[2][default]{%
@@ -423,7 +429,8 @@
   \vskip \postSskip \nopagebreak}
 \newcommand{\ucdsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing\textbf{#1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 % subsubsection
 \newcommand{\ucdsubsubsec}[2][default]{%
@@ -433,13 +440,16 @@
   \vskip \postSskip \nopagebreak} %changed from boldfaced to italicized font -- as required (JH)
 \newcommand{\ucdsubsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing{\normalsize\textbf #1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
   
 \renewcommand{\chapter}{\secdef \ucdchapter \ucdchapternn}
 \renewcommand{\part}{\secdef \ucdpart \ucdpartnn}
 \renewcommand{\section}{\secdef \ucdsec \ucdsecnn}
 \renewcommand{\subsection}{\secdef \ucdsubsec \ucdsubsecnn}
 \renewcommand{\subsubsection}{\secdef \ucdsubsubsec \ucdsubsubsecnn}
+
+
 
 
 %%

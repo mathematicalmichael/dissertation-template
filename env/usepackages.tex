@@ -10,13 +10,19 @@
 \usepackage{url}
 \usepackage{paralist}
 \usepackage{xparse}
-\usepackage{enumitem}
+\usepackage{enumerate}
 \usepackage[ruled, vlined]{env/algorithm2e}
-% source: https://ctan.org/tex-archive/macros/latex/contrib/algorithm2e/tex
+\providecommand\algorithmname{algorithm}
 
 % Using ragged2e package to get left-justified, ragged-right text throughout body (JH)
 \usepackage[document]{ragged2e}
-\setlength{\RaggedRightParindent}{\parindent}
+\setlength{\RaggedRightParindent}{0.5in}
+\usepackage{etoolbox}
+\AtBeginEnvironment{figure}{\setlength{\RaggedRightParindent}{0em}}
+\AtBeginEnvironment{table}{\setlength{\RaggedRightParindent}{0em}}
+\AtBeginEnvironment{algorithm}{\setlength{\RaggedRightParindent}{0em}}
+
+% sources: https://ctan.org/tex-archive/macros/latex/contrib/algorithm2e/tex
 
 % ----------------------------------------------------------------------------- %
 % Float setup
@@ -33,5 +39,11 @@
 % ---------------------------------------------------------------------------- %
 % Math Stuff
 \usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+
+% Image path
+\graphicspath{ {figs/}}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
