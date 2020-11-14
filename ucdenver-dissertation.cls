@@ -1,4 +1,4 @@
-%% The `ucdenver-dissertation.cls' is used for formatting a PhD thesis 
+%% The `ucdenver-dissertation.cls' is used for formatting a PhD thesis
 %% for the Department of Biostatistics & Informatics,
 %% University of Colorado Denver.
 %% It may be applicable to other students in the Graduate School
@@ -10,7 +10,7 @@
 %%         Michael Pilosov
 %%
 %%
-%% Package 'ucdenver-dissertation' to use with LaTeX2e 
+%% Package 'ucdenver-dissertation' to use with LaTeX2e
 %% License: GPL-2
 %% Copyright: (C) University of Colorado Denver
 %% Author: Sarah Kreidler
@@ -43,7 +43,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{framed}
 \RequirePackage{appendix}
- 
+
 
 %%
 %% The following preamble elements are required to properly create
@@ -115,7 +115,7 @@
   {\MakeUppercase{\@title}} \\
   by \\
   \MakeUppercase{\@authorFirst{}\ \@authorMiddle{}\ \@authorLast{}} \\
-  \@education \\[3in] 
+  \@education \\[3in]
   A thesis submitted to the \\
   Faculty of the Graduate School of the \\
   University of Colorado in partial fulfillment \\
@@ -123,9 +123,9 @@
   Doctor of Philosophy \\
   \@program\ Program \\
   \@date \\
-\end{center} 
+\end{center}
 \vspace*{\fill}
-  
+
 }
 
 %% formatting committee page
@@ -152,14 +152,14 @@
 %% formatting committee page
 \newcommand{\makeprefacepage}{
   \newpage
-  \begin{flushleft} 
+  \begin{flushleft}
   \@authorLast{}, \@authorFirst{} \@authorMiddle{} (Ph.D., \@program) \\
   { \doublespacing \@title \par  Thesis directed by \@advisorTitle{} \@advisor\ \par} % and \@coadvisorTitle{} \@coadvisor\ \par } %% Turn on for co-advisors!
   \end{flushleft}
   %\medskip
   \begin{center}
   {\bf ABSTRACT}\\
-  \end{center} 
+  \end{center}
    \raggedright %%%%%%%% Needed to add this in to get ragged right edges in abstract (JH)
   {\doublespacing \@preface \par }
   \vfill
@@ -178,7 +178,7 @@
   \begin{center}
   {\bf ACKNOWLEDGEMENTS} \\
   \end{center}
-  %\hskip \parindent 
+  %\hskip \parindent
   { \doublespacing \@acknowledgements }
 \fi
 }
@@ -233,7 +233,7 @@
 }
 \urlstyle{same}
 
-%% table of contents 
+%% table of contents
 \setcounter{tocdepth}{3} % needed to add this to get subsubsection level to appear... (JH)
 \renewcommand{\@tocrmarg}{2.55em plus1fil}
 
@@ -245,7 +245,7 @@
     \begingroup
       \parindent \z@ \rightskip \@tocrmarg
       \parfillskip -\rightskip
-      \leavevmode 
+      \leavevmode
       \advance\leftskip\@tempdima
       \hskip -\leftskip
       #1\nobreak
@@ -309,7 +309,7 @@
     \if@restonecol\twocolumn\fi
     \doublespacing
     }
-    
+
 %% custom list of figures
 \renewcommand\listfigurename{LIST OF FIGURES}
 \newcommand{\ucdlistfigureheader}[1]{\newpage%
@@ -333,7 +333,7 @@
 %\vspace*{\fill}
     \doublespacing
     }
-    
+
 %% we override the abstract command to avoid a new page
 \renewenvironment{abstract}{%
     \small
@@ -356,11 +356,11 @@
   \kern-3\p@
   \hrule\@width.4\columnwidth
   \kern2.6\p@}
-  
+
 \usepackage{chngcntr}
 \counterwithout{footnote}{chapter}
 
-  
+
 %% sections, subsections, and subsubsections
 \newlength{\preXLskip}
 \newlength{\preLskip}
@@ -373,7 +373,7 @@
 \setlength{\preMskip}{1\baselineskip plus 0.2ex minus 0ex}
 \setlength{\preSskip}{-.25cm}%{.8\baselineskip plus 0.2ex minus 0ex} -- not actually called (J)
 \setlength{\postMskip}{.5\baselineskip plus 0ex minus 0.1ex}
-\setlength{\postSskip}{0cm}%{.3\baselineskip plus 0ex minus 0.1ex} 
+\setlength{\postSskip}{0cm}%{.3\baselineskip plus 0ex minus 0.1ex}
 
 \newcounter {chapternn}
 \renewcommand \thechapternn {\@arabic\c@chapternn}
@@ -442,7 +442,7 @@
   {\@afterindentfalse\@afterheading\singlespacing{\normalsize\textbf #1}} \nopagebreak
   \vskip \postSskip \nopagebreak
 }
-  
+
 \renewcommand{\chapter}{\secdef \ucdchapter \ucdchapternn}
 \renewcommand{\part}{\secdef \ucdpart \ucdpartnn}
 \renewcommand{\section}{\secdef \ucdsec \ucdsecnn}
