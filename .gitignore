@@ -3,6 +3,7 @@
 *.blg
 *.aux
 dissertation.pdf
+*.synctex*
 *.fdb_latexmk
 *.lot
 *.lof
