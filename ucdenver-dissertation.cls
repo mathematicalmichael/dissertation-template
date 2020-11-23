@@ -196,7 +196,7 @@
   \newpage
   \vspace*{\fill}
   %\hskip \parindent \@dedication \\  % For a dedication of one or more sentences
-  \begin{center} \@dedication \end{center}          % for a dedication less than one sentence
+  \begin{center} \@dedication \end{center} % for a dedication less than one sentence
   \vspace*{\fill}
 \fi
 }
@@ -227,7 +227,6 @@
 
 %% hyperlink formatting
 \hypersetup{%
-    %hyperindex = {true}, %unnecessary. (JH)
     colorlinks = {true},
     linktocpage = {true},
     plainpages = {false},
@@ -241,7 +240,7 @@
 \urlstyle{same}
 
 %% table of contents
-\setcounter{tocdepth}{3} % needed to add this to get subsubsection level to appear... (JH)
+\setcounter{tocdepth}{3}
 \renewcommand{\@tocrmarg}{2.55em plus1fil}
 
 \renewcommand*\l@chapter[2]{%
