@@ -67,12 +67,15 @@
 \newcommand{\preface}[1]{\def\@preface{#1}}
 
 
+
+
 %% numbering for theorems
 \newcounter{theorem}
 \newcounter{lemma}
 
 %% set margins
 \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
 
 \pagestyle{fancy} %
 \fancyhf{} %
@@ -175,7 +178,8 @@
   \begin{center}
   {\bf ACKNOWLEDGEMENTS} \\
   \end{center}
-  \hskip \parindent { \doublespacing \@acknowledgements }
+  %\hskip \parindent
+  { \doublespacing \@acknowledgements }
 \fi
 }
 
