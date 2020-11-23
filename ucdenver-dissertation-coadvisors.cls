@@ -421,17 +421,19 @@
   \vskip \postSskip \nopagebreak}
 \newcommand{\ucdsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing\textbf{#1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 % subsubsection
 \newcommand{\ucdsubsubsec}[2][default]{%
   \refstepcounter{subsubsection}%
-  \addcontentsline{toc}{subsubsection}{\thesubsubsection\space #1}
-  {\@afterindentfalse\@afterheading\singlespacing\normalsize\textbf{\thesubsubsection\space #2}} \nopagebreak
+  \addcontentsline{toc}{subsubsection}{\hspace{7em}\thesubsubsection\space #1}
+  {\@afterindentfalse\@afterheading\singlespacing\normalsize\textit{\thesubsubsection\space #2}} \nopagebreak
   \vskip \postSskip \nopagebreak}
 \newcommand{\ucdsubsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing{\normalsize\textbf #1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 \renewcommand{\chapter}{\secdef \ucdchapter \ucdchapternn}
 \renewcommand{\part}{\secdef \ucdpart \ucdpartnn}

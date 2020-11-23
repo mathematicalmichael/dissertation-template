@@ -23,6 +23,9 @@
 %% 13 Apr 2014 - added vspace*{\fill} to the listofigures to center vertically
 %% 26 Jan 2016 - commented out the vspace*{\fill} from listtofigures
 %% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
+%% Table of Contents - added in hspace{7em}
+%% Subsubsection - changed from boldfaced to italicized font
+%% 
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
 \def\filedate{2012/09/24}
@@ -440,9 +443,9 @@
 % subsubsection
 \newcommand{\ucdsubsubsec}[2][default]{%
   \refstepcounter{subsubsection}%
-  \addcontentsline{toc}{subsubsection}{\hspace{7em}\thesubsubsection\space #1} %added in hspace{7em} (JH)
+  \addcontentsline{toc}{subsubsection}{\hspace{7em}\thesubsubsection\space #1}
   {\@afterindentfalse\@afterheading\singlespacing\normalsize\textit{\thesubsubsection\space #2}} \nopagebreak
-  \vskip \postSskip \nopagebreak} %changed from boldfaced to italicized font -- as required (JH)
+  \vskip \postSskip \nopagebreak}
 \newcommand{\ucdsubsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing{\normalsize\textbf #1}} \nopagebreak
   \vskip \postSskip \nopagebreak
