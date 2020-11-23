@@ -230,7 +230,9 @@
 \urlstyle{same}
 
 %% table of contents
+\setcounter{tocdepth}{3}
 \renewcommand{\@tocrmarg}{2.55em plus1fil}
+
 \renewcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%

@@ -23,7 +23,7 @@
 %% 13 Apr 2014 - added vspace*{\fill} to the listofigures to center vertically
 %% 26 Jan 2016 - commented out the vspace*{\fill} from listtofigures
 %% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
-%% Table of Contents - added in hspace{7em}
+%% Table of Contents - added in hspace{7em}, changed depth to 3 for subsubsection to appear
 %% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
 %%
 \def\fileversion{1.0}
