@@ -371,7 +371,7 @@
 \setlength{\preXLskip}{1.8\baselineskip plus 0.5ex minus 0ex}
 \setlength{\preLskip}{1.5\baselineskip plus 0.3ex minus 0ex}
 \setlength{\preMskip}{1\baselineskip plus 0.2ex minus 0ex}
-\setlength{\preSskip}{-.25cm}
+\setlength{\preSskip}{0cm}
 \setlength{\postMskip}{.5\baselineskip plus 0ex minus 0.1ex}
 \setlength{\postSskip}{0cm}
 
