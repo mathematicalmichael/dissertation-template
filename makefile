@@ -25,8 +25,7 @@ TEXFILES := \
 	abstract \
 	main \
 	env/newcommands \
-	env/usepackages \
-	env/algorithm2e
+	env/usepackages
 
 # adds .tex to path name
 TEXS = $(patsubst %, %.tex, $(TEXFILES))
