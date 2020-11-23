@@ -23,9 +23,10 @@ FILENAME = dissertation
 TEXFILES := \
 	$(FILENAME) \
 	abstract \
-	notation \
+	main \
 	env/newcommands \
 	env/usepackages \
+	env/algorithm2e
 
 # adds .tex to path name
 TEXS = $(patsubst %, %.tex, $(TEXFILES))
@@ -34,10 +35,11 @@ TEXS = $(patsubst %, %.tex, $(TEXFILES))
 DEPS := \
 	ref/ucdDissertation.bst \
 	ucdenver-dissertation.cls \
+	ucdenver-dissertation-coadvisors.cls
 
 # targets that are labeled as PHONY are treated as always needing an update
 # a file doesn't actually need to exist for it to run
-.PHONY: all clean full_image latex_image python_image
+.PHONY: all clean full_image latex_image
 
 # the first real target is the one used when no other arguments are passed to `make`
 # by creating a dependency on the pdf, we trigger a compilation by default.
@@ -61,5 +63,3 @@ latex_image: bin/Dockerfile
 full_image: bin/Dockerfile-full latex_image
 	docker build -t latex:full -f bin/Dockerfile-full .
 
-python_image: bin/Dockerfile-python
-	docker build -t python:thesis -f bin/Dockerfile-python .
