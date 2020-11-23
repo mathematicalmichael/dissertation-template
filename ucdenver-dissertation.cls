@@ -148,7 +148,6 @@
     by \\[3in]
     \@committeeChair, Chair \\
     \@advisor, Advisor \\
-    % \@coadvisor, Co-Advisor \\  %% CO-ADVISOR
     \@committeeMembers \\[1in]
   \end{center}
   \begin{flushright}
@@ -162,7 +161,7 @@
   \newpage
   \begin{flushleft}
   \@authorLast{}, \@authorFirst{} \@authorMiddle{} (Ph.D., \@program) \\
-  { \doublespacing \@title \par  Thesis directed by \@advisorTitle{} \@advisor\ \par} % and \@coadvisorTitle{} \@coadvisor\ \par } %% Turn on for co-advisors!
+  { \doublespacing \@title \par  Thesis directed by \@advisorTitle{} \@advisor\ \par}
   \end{flushleft}
   %\medskip
   \begin{center}
@@ -176,7 +175,6 @@
   \end{flushright}
   \begin{flushright}
   \hfill Approved: \@advisor\
-  % and \@coadvisor %% CO-ADVISOR
   \end{flushright}
 }
 

@@ -154,20 +154,21 @@
   \newpage
   \begin{flushleft}
   \@authorLast{}, \@authorFirst{} \@authorMiddle{} (Ph.D., \@program) \\
-  { \doublespacing \@title \par Thesis directed by \@advisorTitle{} \@advisor\ and \@coadvisorTitle \@coadvisor \par }
+  { \doublespacing \@title \par  Thesis directed by \@advisorTitle{} \@advisor\ \par and \@coadvisorTitle{} \@coadvisor\ \par }
   \end{flushleft}
-  \medskip
+  %\medskip
   \begin{center}
   {\bf ABSTRACT}\\
   \end{center}
-  \hskip \parindent
+   \raggedright %% ragged edges
   {\doublespacing \@preface \par }
   \vfill
   \begin{flushright}
   The form and content of this abstract are approved. We recommend its publication.
   \end{flushright}
   \begin{flushright}
-  \hfill Approved: \@advisor\ and \@coadvisor
+  \hfill Approved: \@advisor \
+  and \@coadvisor
   \end{flushright}
 }
 
