@@ -136,7 +136,7 @@
     \@program\ Program \\
     by \\[3in]
     \@committeeChair, Chair \\
-    \@advisor, Co-Advisor \\
+    \@advisor, Advisor \\
     \@coadvisor, Co-Advisor \\
     \@committeeMembers \\[1in]
   \end{center}
