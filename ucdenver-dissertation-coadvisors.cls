@@ -229,13 +229,12 @@
 
 %% hyperlink formatting
 \hypersetup{%
-    hyperindex = {true},
     colorlinks = {true},
     linktocpage = {true},
     plainpages = {false},
-    linkcolor = {blue},
-    citecolor = {blue},
-    urlcolor = {blue},
+    linkcolor = {blue},  % change to black later
+    citecolor = {blue},  % change to black later
+    urlcolor = {blue},   % change to black later
     pdfstartview = {Fit},
     pdfpagemode = {UseOutlines},
     pdfview = {XYZ null null null}
