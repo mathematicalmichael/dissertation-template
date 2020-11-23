@@ -25,7 +25,8 @@
 %% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
 %% Table of Contents - added in hspace{7em}, changed depth to 3 for subsubsection to appear
 %% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
-%%
+%% \postSskip and \preSskip set to 0cm
+
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
 \def\filedate{2012/09/24}
@@ -379,9 +380,9 @@
 \setlength{\preXLskip}{1.8\baselineskip plus 0.5ex minus 0ex}
 \setlength{\preLskip}{1.5\baselineskip plus 0.3ex minus 0ex}
 \setlength{\preMskip}{1\baselineskip plus 0.2ex minus 0ex}
-\setlength{\preSskip}{-.25cm}%{.8\baselineskip plus 0.2ex minus 0ex} -- not actually called (J)
+\setlength{\preSskip}{0cm}
 \setlength{\postMskip}{.5\baselineskip plus 0ex minus 0.1ex}
-\setlength{\postSskip}{0cm}%{.3\baselineskip plus 0ex minus 0.1ex}
+\setlength{\postSskip}{0cm}
 
 \newcounter {chapternn}
 \renewcommand \thechapternn {\@arabic\c@chapternn}
