@@ -8,6 +8,7 @@
 %% Author: Sarah Kreidler
 %%         Peter DeWitt
 %%         Michael Pilosov
+%%         Jordan Hall
 %%
 %%
 %% Package 'ucdenver-dissertation' to use with LaTeX2e
@@ -15,11 +16,17 @@
 %% Copyright: (C) University of Colorado Denver
 %% Author: Sarah Kreidler
 %% Please report errors to sarah.kreidler@ucdenver.edu, and/or
-%% peter.dewitt@ucdenver.edu
+%% peter.dewitt@ucdenver.edu, and/or (more likely to get a response) open an issue at
+%% github.com/mathematicalmichael/dissertation-template
 %%
 %% Change log
 %% 13 Apr 2014 - added vspace*{\fill} to the listofigures to center vertically
 %% 26 Jan 2016 - commented out the vspace*{\fill} from listtofigures
+%% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
+%% Table of Contents - added in hspace{7em}, changed depth to 3 for subsubsection to appear
+%% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
+%% \postSskip and \preSskip set to 0cm, and removed hyperindex = {true} from hypersetup
+
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
 \def\filedate{2012/09/24}
@@ -32,9 +39,10 @@
 \LoadClass[10pt]{report}
 
 %% required packages
-\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0.25in]{geometry}
-\RequirePackage[font=singlespacing]{caption}
+\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0in]{geometry}
+\RequirePackage[font=singlespacing, width = 0.8\textwidth, justification=centering, labelsep=colon]{caption}
 \RequirePackage[raggedright]{titlesec}
+
 
 \RequirePackage{setspace,savesym,amsmath,amsthm,amsfonts,graphicx,color,hyperref,extramarks,lastpage,chngpage}
 
