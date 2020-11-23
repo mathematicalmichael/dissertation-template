@@ -196,7 +196,7 @@
   \newpage
   \vspace*{\fill}
   %\hskip \parindent \@dedication \\  % For a dedication of one or more sentences
-  \begin{center} \@dedication \end{center} % for a dedication less than one sentence
+  \begin{center} \@dedication \end{center}  % for a dedication less than one sentence
   \vspace*{\fill}
 \fi
 }
