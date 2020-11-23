@@ -144,7 +144,7 @@
     \@committeeMembers \\[1in]
   \end{center}
   \begin{flushright}
-    Date \underline{\@submitDate}
+    Date: \@submitDate
   \end{flushright}
   \vspace*{\fill}
 }
