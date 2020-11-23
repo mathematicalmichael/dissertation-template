@@ -24,8 +24,8 @@
 %% 26 Jan 2016 - commented out the vspace*{\fill} from listtofigures
 %% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
 %% Table of Contents - added in hspace{7em}
-%% Subsubsection - changed from boldfaced to italicized font
-%% 
+%% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
+%%
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
 \def\filedate{2012/09/24}
@@ -267,7 +267,7 @@
 
 \renewcommand*\l@section{\vspace{12pt}\@dottedtocline{1}{1.5em}{2.3em}}
 \renewcommand*\l@subsection{\vspace{12pt}\@dottedtocline{2}{3.0em}{3.2em}}
-\renewcommand*\l@subsubsection{\vspace{12pt}\@dottedtocline{3}{4.5em}{4.1em}} % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout (JH)
+\renewcommand*\l@subsubsection{\vspace{12pt}\@dottedtocline{3}{4.5em}{4.1em}}
 \renewcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \renewcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 

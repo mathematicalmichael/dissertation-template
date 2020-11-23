@@ -251,10 +251,9 @@
     \endgroup
   \fi}
 
-
 \renewcommand*\l@section{\vspace{12pt}\@dottedtocline{1}{1.5em}{2.3em}}
 \renewcommand*\l@subsection{\vspace{12pt}\@dottedtocline{2}{3.0em}{3.2em}}
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+\renewcommand*\l@subsubsection{\vspace{12pt}\@dottedtocline{3}{4.5em}{4.1em}}
 \renewcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \renewcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 
@@ -400,9 +399,11 @@
 \newcommand{\ucdpartnn}[1]{\newpage%
   \addcontentsline{toc}{part}{#1}
   {\@afterindentfalse\@afterheading\singlespacing\textbf{\Huge #1}} \nopagebreak
-  \vskip \postMskip \nopagebreak}
+  \vskip \postMskip \nopagebreak
+}
 
 % section
+
 \newcommand{\ucdsec}[2][default]{%
   \refstepcounter{section}%
   \addcontentsline{toc}{section}{\hspace{3em}\thesection\space #1}
@@ -411,7 +412,8 @@
   }
 \newcommand{\ucdsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing\textbf{#1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 % subsection
 \newcommand{\ucdsubsec}[2][default]{%
@@ -440,6 +442,8 @@
 \renewcommand{\section}{\secdef \ucdsec \ucdsecnn}
 \renewcommand{\subsection}{\secdef \ucdsubsec \ucdsubsecnn}
 \renewcommand{\subsubsection}{\secdef \ucdsubsubsec \ucdsubsubsecnn}
+
+
 
 
 %%
