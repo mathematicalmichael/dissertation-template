@@ -8,6 +8,7 @@
 %% Author: Sarah Kreidler
 %%         Peter DeWitt
 %%         Michael Pilosov
+%%         Jordan Hall
 %%
 %%
 %% Package 'ucdenver-dissertation' to use with LaTeX2e
@@ -15,11 +16,13 @@
 %% Copyright: (C) University of Colorado Denver
 %% Author: Sarah Kreidler
 %% Please report errors to sarah.kreidler@ucdenver.edu, and/or
-%% peter.dewitt@ucdenver.edu
+%% peter.dewitt@ucdenver.edu, and/or (more likely to get a response) open an issue at
+%% github.com/mathematicalmichael/dissertation-template
 %%
 %% Change log
 %% 13 Apr 2014 - added vspace*{\fill} to the listofigures to center vertically
 %% 26 Jan 2016 - commented out the vspace*{\fill} from listtofigures
+%% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
 \def\filedate{2012/09/24}
@@ -140,7 +143,8 @@
     \@program\ Program \\
     by \\[3in]
     \@committeeChair, Chair \\
-    \@advisor, Co-Advisor \\ % \@coadvisor, Co-Advisor \\  %% Start new line and then turn on for co-advisors!
+    \@advisor, Advisor \\
+    % \@coadvisor, Co-Advisor \\  %% CO-ADVISOR
     \@committeeMembers \\[1in]
   \end{center}
   \begin{flushright}
@@ -160,14 +164,15 @@
   \begin{center}
   {\bf ABSTRACT}\\
   \end{center}
-   \raggedright %%%%%%%% Needed to add this in to get ragged right edges in abstract (JH)
+   \raggedright %% ragged edges
   {\doublespacing \@preface \par }
   \vfill
   \begin{flushright}
   The form and content of this abstract are approved. We recommend its publication.
   \end{flushright}
   \begin{flushright}
-  \hfill Approved: \@advisor\ % and \@coadvisor %% Turn on for co-advisors!
+  \hfill Approved: \@advisor\
+  % and \@coadvisor %% CO-ADVISOR
   \end{flushright}
 }
 

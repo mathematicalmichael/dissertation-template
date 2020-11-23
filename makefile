@@ -8,13 +8,13 @@ CHAPTERS = $(shell find . -type f -name 'chapter*.tex')
 APPENDIX = $(shell find . -type f -name 'appendix*.tex')
 
 # changes to images/figures: add/edit this line to reflect your file types
-# if you create a new variable (perhaps to track a folder), add it to target 
-IMAGES = $(shell find . -type f -name '*.png') 
+# if you create a new variable (perhaps to track a folder), add it to target
+IMAGES = $(shell find . -type f -name '*.png')
 FIGURES = $(shell find . -type f -name '*.pdf' | grep 'figures')
 
 REFS = $(shell find . -type f -name 'references*.bib')
 # custom latex environment/styles for python, bash, etc. (syntax highlighting)
-ENVS = $(shell find . -type f -name '*env.tex') 
+ENVS = $(shell find . -type f -name '*env.tex')
 
 # file name (without .tex)
 FILENAME = dissertation
@@ -62,4 +62,3 @@ latex_image: bin/Dockerfile
 # extras to build posters/graphics
 full_image: bin/Dockerfile-full latex_image
 	docker build -t latex:full -f bin/Dockerfile-full .
-
