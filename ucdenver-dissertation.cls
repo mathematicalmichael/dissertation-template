@@ -25,7 +25,7 @@
 %% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
 %% Table of Contents - added in hspace{7em}, changed depth to 3 for subsubsection to appear
 %% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
-%% \postSskip and \preSskip set to 0cm
+%% \postSskip and \preSskip set to 0cm, and removed hyperindex = {true} from hypersetup
 
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
