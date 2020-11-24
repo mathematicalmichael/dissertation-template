@@ -8,6 +8,7 @@
 %% Author: Sarah Kreidler
 %%         Peter DeWitt
 %%         Michael Pilosov
+%%         Jordan Hall
 %%
 %%
 %% Package 'ucdenver-dissertation' to use with LaTeX2e
@@ -15,11 +16,17 @@
 %% Copyright: (C) University of Colorado Denver
 %% Author: Sarah Kreidler
 %% Please report errors to sarah.kreidler@ucdenver.edu, and/or
-%% peter.dewitt@ucdenver.edu
+%% peter.dewitt@ucdenver.edu, and/or (more likely to get a response) open an issue at
+%% github.com/mathematicalmichael/dissertation-template
 %%
 %% Change log
 %% 13 Apr 2014 - added vspace*{\fill} to the listofigures to center vertically
 %% 26 Jan 2016 - commented out the vspace*{\fill} from listtofigures
+%% 21 Nov 2020 - updated for 2020 Graduate Student Handbook: ragged edges, different numbering / spacing
+%% Table of Contents - added in hspace{7em}, changed depth to 3 for subsubsection to appear
+%% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
+%% \postSskip and \preSskip set to 0cm, and removed hyperindex = {true} from hypersetup
+
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
 \def\filedate{2012/09/24}
@@ -32,9 +39,10 @@
 \LoadClass[10pt]{report}
 
 %% required packages
-\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0.25in]{geometry}
-\RequirePackage[font=singlespacing]{caption}
+\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0in]{geometry}
+\RequirePackage[font=singlespacing, width = 0.8\textwidth, justification=centering, labelsep=colon]{caption}
 \RequirePackage[raggedright]{titlesec}
+
 
 \RequirePackage{setspace,savesym,amsmath,amsthm,amsfonts,graphicx,color,hyperref,extramarks,lastpage,chngpage}
 
@@ -67,12 +75,15 @@
 \newcommand{\preface}[1]{\def\@preface{#1}}
 
 
+
+
 %% numbering for theorems
 \newcounter{theorem}
 \newcounter{lemma}
 
 %% set margins
 \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
 
 \pagestyle{fancy} %
 \fancyhf{} %
@@ -141,7 +152,7 @@
     \@committeeMembers \\[1in]
   \end{center}
   \begin{flushright}
-    Date \underline{\@submitDate}
+    Date: \@submitDate
   \end{flushright}
   \vspace*{\fill}
 }
@@ -151,20 +162,21 @@
   \newpage
   \begin{flushleft}
   \@authorLast{}, \@authorFirst{} \@authorMiddle{} (Ph.D., \@program) \\
-  { \doublespacing \@title \par Thesis directed by \@advisorTitle{} \@advisor\ and \@coadvisorTitle \@coadvisor \par }
+  { \doublespacing \@title \par  Thesis directed by \@advisorTitle{} \@advisor\ \par and \@coadvisorTitle{} \@coadvisor\ \par }
   \end{flushleft}
-  \medskip
+  %\medskip
   \begin{center}
   {\bf ABSTRACT}\\
   \end{center}
-  \hskip \parindent
+   \raggedright %% ragged edges
   {\doublespacing \@preface \par }
   \vfill
   \begin{flushright}
   The form and content of this abstract are approved. We recommend its publication.
   \end{flushright}
   \begin{flushright}
-  \hfill Approved: \@advisor\ and \@coadvisor
+  \hfill Approved: \@advisor \
+  and \@coadvisor
   \end{flushright}
 }
 
@@ -175,7 +187,8 @@
   \begin{center}
   {\bf ACKNOWLEDGEMENTS} \\
   \end{center}
-  \hskip \parindent { \doublespacing \@acknowledgements }
+  %\hskip \parindent
+  { \doublespacing \@acknowledgements }
 \fi
 }
 
@@ -185,7 +198,7 @@
   \newpage
   \vspace*{\fill}
   %\hskip \parindent \@dedication \\  % For a dedication of one or more sentences
-  \begin{center} \@dedication \end{center}          % for a dedication less than one sentence
+  \begin{center} \@dedication \end{center}  % for a dedication less than one sentence
   \vspace*{\fill}
 \fi
 }
@@ -216,13 +229,12 @@
 
 %% hyperlink formatting
 \hypersetup{%
-    hyperindex = {true},
     colorlinks = {true},
     linktocpage = {true},
     plainpages = {false},
-    linkcolor = {blue},
-    citecolor = {blue},
-    urlcolor = {blue},
+    linkcolor = {blue},  % change to black later
+    citecolor = {blue},  % change to black later
+    urlcolor = {blue},   % change to black later
     pdfstartview = {Fit},
     pdfpagemode = {UseOutlines},
     pdfview = {XYZ null null null}
@@ -230,7 +242,9 @@
 \urlstyle{same}
 
 %% table of contents
+\setcounter{tocdepth}{3}
 \renewcommand{\@tocrmarg}{2.55em plus1fil}
+
 \renewcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
@@ -251,10 +265,9 @@
     \endgroup
   \fi}
 
-
 \renewcommand*\l@section{\vspace{12pt}\@dottedtocline{1}{1.5em}{2.3em}}
 \renewcommand*\l@subsection{\vspace{12pt}\@dottedtocline{2}{3.0em}{3.2em}}
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+\renewcommand*\l@subsubsection{\vspace{12pt}\@dottedtocline{3}{4.5em}{4.1em}}
 \renewcommand*\l@paragraph{\@dottedtocline{4}{10em}{5em}}
 \renewcommand*\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
 
@@ -366,9 +379,9 @@
 \setlength{\preXLskip}{1.8\baselineskip plus 0.5ex minus 0ex}
 \setlength{\preLskip}{1.5\baselineskip plus 0.3ex minus 0ex}
 \setlength{\preMskip}{1\baselineskip plus 0.2ex minus 0ex}
-\setlength{\preSskip}{.8\baselineskip plus 0.2ex minus 0ex}
+\setlength{\preSskip}{0cm}
 \setlength{\postMskip}{.5\baselineskip plus 0ex minus 0.1ex}
-\setlength{\postSskip}{.3\baselineskip plus 0ex minus 0.1ex}
+\setlength{\postSskip}{0cm}
 
 \newcounter {chapternn}
 \renewcommand \thechapternn {\@arabic\c@chapternn}
@@ -400,9 +413,11 @@
 \newcommand{\ucdpartnn}[1]{\newpage%
   \addcontentsline{toc}{part}{#1}
   {\@afterindentfalse\@afterheading\singlespacing\textbf{\Huge #1}} \nopagebreak
-  \vskip \postMskip \nopagebreak}
+  \vskip \postMskip \nopagebreak
+}
 
 % section
+
 \newcommand{\ucdsec}[2][default]{%
   \refstepcounter{section}%
   \addcontentsline{toc}{section}{\hspace{3em}\thesection\space #1}
@@ -411,7 +426,8 @@
   }
 \newcommand{\ucdsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing\textbf{#1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 % subsection
 \newcommand{\ucdsubsec}[2][default]{%
@@ -421,23 +437,27 @@
   \vskip \postSskip \nopagebreak}
 \newcommand{\ucdsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing\textbf{#1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 % subsubsection
 \newcommand{\ucdsubsubsec}[2][default]{%
   \refstepcounter{subsubsection}%
-  \addcontentsline{toc}{subsubsection}{\thesubsubsection\space #1}
-  {\@afterindentfalse\@afterheading\singlespacing\normalsize\textbf{\thesubsubsection\space #2}} \nopagebreak
+  \addcontentsline{toc}{subsubsection}{\hspace{7em}\thesubsubsection\space #1}
+  {\@afterindentfalse\@afterheading\singlespacing\normalsize\textit{\thesubsubsection\space #2}} \nopagebreak
   \vskip \postSskip \nopagebreak}
 \newcommand{\ucdsubsubsecnn}[1]{%
   {\@afterindentfalse\@afterheading\singlespacing{\normalsize\textbf #1}} \nopagebreak
-  \vskip \postSskip \nopagebreak}
+  \vskip \postSskip \nopagebreak
+}
 
 \renewcommand{\chapter}{\secdef \ucdchapter \ucdchapternn}
 \renewcommand{\part}{\secdef \ucdpart \ucdpartnn}
 \renewcommand{\section}{\secdef \ucdsec \ucdsecnn}
 \renewcommand{\subsection}{\secdef \ucdsubsec \ucdsubsecnn}
 \renewcommand{\subsubsection}{\secdef \ucdsubsubsec \ucdsubsubsecnn}
+
+
 
 
 %%

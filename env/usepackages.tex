@@ -2,7 +2,6 @@
 % usepackages.tex
 
 % ----------------------------------------------------------------------------- %
-% a list of packages I commonly use in my LaTeX deliverables.
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
@@ -10,11 +9,35 @@
 \usepackage{url}
 \usepackage{paralist}
 \usepackage{xparse}
+\usepackage{ifthen}
+\synctex=1
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+
+
 \usepackage{enumerate}
 \usepackage[ruled, vlined]{env/algorithm2e}
 \providecommand\algorithmname{algorithm}
 
-% Using ragged2e package to get left-justified, ragged-right text throughout body (JH)
+% Using ragged2e package to get left-justified, ragged-right text throughout body
 \usepackage[document]{ragged2e}
 \setlength{\RaggedRightParindent}{0.5in}
 \usepackage{etoolbox}
@@ -45,5 +68,8 @@
 
 
 
+\usepackage{mathtools} % for \xmapsto
+\usepackage{array}
+\renewcommand\arraystretch{0.5}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

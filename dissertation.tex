@@ -2,20 +2,21 @@
 % file: disseration.tex
 % author: YOUR NAME HERE
 %
-% LaTeX based on work by Michael Pilosov and Sarah Kreidler and Peter DeWitt
-% (github.com/dewittpe/ucd-dissertation-template)
-%
+% LaTeX based on work by Sarah Kreidler and Peter DeWitt, updated by
+% Michael Pilosov and Jordan Hall
+% (github.com/dewittpe/ucd-dissertation-template) updated in 2020 to
+% (https://github.com/mathematicalmichael/dissertation-template/)
 % ---------------------------------------------------------------------------- %
 
 \documentclass[english,10pt]{ucdenver-dissertation}
-\input{env/usepackages}
-\input{env/newcommands}
-\input{env/pythonenv}
+\input{env/usepackages.tex}
+\input{env/newcommands.tex}
+\input{env/pythonenv.tex}
 % enables the following:
 % \pythonexternal{demo.py}
 % \begin{python}-\end{python}
 % \pythoninline{import bet}
-\input{env/bashenv}
+\input{env/bashenv.tex}
 % enables the same functions, but with bash.
 \usepackage{lipsum}
 
@@ -42,12 +43,12 @@ M.S., University of Colorado: Denver, YYYY
 \school{University of Colorado: Denver, College of Liberal Arts and Sciences}
 \program{Applied Mathematics}
 \date{2020}
-\submitDate{Final day of semester (eg, December 12, 2020)}
+\submitDate{Final day of semester (e.g., December 12, 2020)}
 
 \advisor{Advisor Name}
 \advisorTitle{Professor}
-%\coadvisor{Co-advisor Two} %% Turn on for co-advisors!
-%\coadvisorTitle{Professor}
+%\coadvisor{Co-advisor Two} %% CO-ADVISOR
+%\coadvisorTitle{Professor} %% CO-ADVISOR
 
 \committeeChair{Chair Member}
 \committeeMembers{
@@ -62,7 +63,7 @@ Fifth Member
 
 % preface
 \preface{
-\input{abstract.tex}
+\input{src/abstract.tex}
 %\input{notation.tex}
 }
 
@@ -71,9 +72,6 @@ Fifth Member
   Thanks.
 }
 
-\usepackage{mathtools} % for \xmapsto
-\usepackage{array}
-\renewcommand\arraystretch{0.5}
 
 \makeatother
 
@@ -83,7 +81,7 @@ Fifth Member
 \begin{document}
 \chead{\small \color{red} DRAFT. Last compiled at \currenttime \ on \today }
 
-\input{main.tex}
+\input{src/main.tex}
 
 % ---------------------------------------------------------------------------- %
 \renewcommand\bibname{REFERENCES}
@@ -91,7 +89,7 @@ Fifth Member
 
 \nocite{*}
 \bibliographystyle{ref/ucdDissertation}
-\bibliography{ref/references,ref/references-code}
+\bibliography{ref/references.bib,ref/references-code.bib}
 
 \doublespacing
 
