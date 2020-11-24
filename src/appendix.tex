@@ -1,7 +1,33 @@
 \chapter{First Appendix}\label{app:some-appendix-topic}
 
+% You will need these renew commands in order to get lettering back
+% for your tables and figs within the TOC
+\renewcommand{\thefigure}{\Alph{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\Alph{chapter}.\arabic{table}}
+
+\lipsum[1]
+
 \lipsum[2]
+
+\lipsum[3]
+
+\lipsum[4]
+
+\lipsum[5]
+
+\lipsum[6]
 
 \input{fig/diagram-b.tex}
 
-\lipsum[1]
+
+\begin{table}[h]
+\caption{A Table for the Appendix}
+\begin{tabular}{ c  l } 
+ \hline
+\\ \textbf{ Detail 1} & \textbf{Detail 2}  \\ [1ex] 
+ \hline \\
+ $\mu^*$ & set to $0.1$ throughout\\  [1ex]
+ $M$ & maximum iteration never exceeded 100\\  [1ex]
+\end{tabular}
+\label{table:appendix-table}
+\end{table}

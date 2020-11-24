@@ -185,7 +185,7 @@
   \begin{center}
   {\bf ACKNOWLEDGEMENTS} \\
   \end{center}
-  %\hskip \parindent
+  %\hskip \parindent 
   { \doublespacing \@acknowledgements }
 \fi
 }
@@ -427,6 +427,10 @@
   \vskip \postSskip \nopagebreak
 }
 
+% Jordan's fix for Roman/arabic issue
+\renewcommand \thesection {\arabic{chapter}.\arabic{section}}
+
+
 % subsection
 \newcommand{\ucdsubsec}[2][default]{%
   \refstepcounter{subsection}%
@@ -455,7 +459,9 @@
 \renewcommand{\subsection}{\secdef \ucdsubsec \ucdsubsecnn}
 \renewcommand{\subsubsection}{\secdef \ucdsubsubsec \ucdsubsubsecnn}
 
-
+% Jordan's fix for arabic numbering in Tables/figs
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 
 
 %%
