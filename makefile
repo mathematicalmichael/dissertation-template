@@ -33,8 +33,7 @@ TEXS = $(patsubst %, %.tex, $(TEXFILES))
 # style-file dependendencies (unlikely to change these, but just in case)
 DEPS := \
 	ref/ucdDissertation.bst \
-	ucdenver-dissertation.cls \
-	ucdenver-dissertation-coadvisors.cls
+	ucdenver-dissertation.cls
 
 # targets that are labeled as PHONY are treated as always needing an update
 # a file doesn't actually need to exist for it to run
