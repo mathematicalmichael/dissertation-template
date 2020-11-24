@@ -38,7 +38,7 @@ DEPS := \
 
 # targets that are labeled as PHONY are treated as always needing an update
 # a file doesn't actually need to exist for it to run
-.PHONY: all clean full_image latex_image
+.PHONY: all clean full_image latex_image coadvisors advisor
 
 # the first real target is the one used when no other arguments are passed to `make`
 # by creating a dependency on the pdf, we trigger a compilation by default.
@@ -61,3 +61,9 @@ latex_image: bin/Dockerfile
 # extras to build posters/graphics
 full_image: bin/Dockerfile-full latex_image
 	docker build -t latex:full -f bin/Dockerfile-full .
+
+coadvisors:
+	cp env/.coadvisors.cls ucdenver-dissertation.cls
+
+advisor:
+	cp env/.advisor.cls ucdenver-dissertation.cls
