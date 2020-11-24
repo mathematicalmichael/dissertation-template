@@ -22,8 +22,6 @@ FILENAME = dissertation
 # dependency list: if changes detected in dependency, rebuild target
 TEXFILES := \
 	$(FILENAME) \
-	abstract \
-	main \
 	env/newcommands \
 	env/usepackages
 
