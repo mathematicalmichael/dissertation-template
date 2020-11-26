@@ -26,6 +26,8 @@
 %% Table of Contents - added in hspace{7em}, changed depth to 3 for subsubsection to appear
 %% Subsubsection - changed from boldfaced to italicized font, % added vspace, which was missing and made 7.0 into 4.5 for em to make indents equal throughout
 %% \postSskip and \preSskip set to 0cm, and removed hyperindex = {true} from hypersetup
+%% Roman numerals should only appear in chapter headings and chapter number in TOC -- Arabic used otherwise
+%% Removed a few lines that were commented out and made a few comments clearer
 
 \def\fileversion{1.0}
 \def\filename{ucdenver-dissertation}
@@ -156,7 +158,7 @@
   \vspace*{\fill}
 }
 
-%% formatting committee page
+%% formatting abstract page
 \newcommand{\makeprefacepage}{
   \newpage
   \begin{flushleft}
@@ -178,14 +180,13 @@
   \end{flushright}
 }
 
-%% formatting committee page
+%% formatting acknowledgements page
 \newcommand{\makeacknowledgementspage}{
 \ifdefined\@acknowledgements
   \newpage
   \begin{center}
   {\bf ACKNOWLEDGEMENTS} \\
   \end{center}
-  %\hskip \parindent 
   { \doublespacing \@acknowledgements }
 \fi
 }
@@ -427,7 +428,6 @@
   \vskip \postSskip \nopagebreak
 }
 
-% Jordan's fix for Roman/arabic issue
 \renewcommand \thesection {\arabic{chapter}.\arabic{section}}
 
 
@@ -459,7 +459,7 @@
 \renewcommand{\subsection}{\secdef \ucdsubsec \ucdsubsecnn}
 \renewcommand{\subsubsection}{\secdef \ucdsubsubsec \ucdsubsubsecnn}
 
-% Jordan's fix for arabic numbering in Tables/figs
+
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
 
