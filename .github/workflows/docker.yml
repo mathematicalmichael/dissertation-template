@@ -20,7 +20,7 @@ jobs:
         docker tag mathematicalmichael/latex:thesis latex:thesis
 
     - name: Set up PATH for binaries
-      run: echo "::add-path::$(pwd)/bin"
+      run: echo "PATH=$(pwd)/bin:$PATH" >> $GITHUB_ENV
 
     - name: Compile thesis with latexmk (docker-based)
       run: make
