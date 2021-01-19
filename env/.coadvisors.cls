@@ -39,8 +39,8 @@
 \LoadClass[10pt]{report}
 
 %% required packages
-\RequirePackage[left=1in,top=1in,right=1in,bottom=1in,bindingoffset=0in]{geometry}
-\RequirePackage[font=singlespacing, width = 0.8\textwidth, justification=centering, labelsep=colon]{caption}
+\RequirePackage[total={6.5in,9in}, margin=1in, bindingoffset=0in]{geometry}
+\RequirePackage[font=singlespacing]{caption}
 \RequirePackage[raggedright]{titlesec}
 
 
@@ -232,9 +232,9 @@
     colorlinks = {true},
     linktocpage = {true},
     plainpages = {false},
-    linkcolor = {blue},  % change to black later
-    citecolor = {blue},  % change to black later
-    urlcolor = {blue},   % change to black later
+    linkcolor = {black},
+    citecolor = {black},
+    urlcolor = {black},
     pdfstartview = {Fit},
     pdfpagemode = {UseOutlines},
     pdfview = {XYZ null null null}
