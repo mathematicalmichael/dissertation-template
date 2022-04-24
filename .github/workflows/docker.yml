@@ -3,8 +3,15 @@ name: Docker
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/main.yml'
+      - '.github/workflows/release.yml'
+
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/main.yml'
+      - '.github/workflows/release.yml'
 
 jobs:
   docker:
