@@ -2,6 +2,8 @@ name: Create Release
 
 on:
   push:
+    branches:
+      - 'main'
     tags:
       - '*'
 
@@ -15,9 +17,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: version
+      - name: set name
         run: echo "::set-output name=version::$(date '+%Y-%m-%d')"
-        id: version
+        id: release_name
 
       - name: install
         run: sudo apt-get install -yqq texlive-base texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra latexmk
@@ -31,11 +33,12 @@ jobs:
         with:
           draft: false
           prerelease: false
-          release_name: ${{ steps.version.outputs.version }}
+          release_name: ${{ steps.release_name.outputs.version }}
           tag_name: ${{ github.ref }}
           body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        if: ${{ !(github.event_name == 'release') }}
 
       - name: upload pdf
         uses: actions/upload-release-asset@v1
