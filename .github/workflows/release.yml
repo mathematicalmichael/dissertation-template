@@ -29,6 +29,7 @@ jobs:
 
       - name: release
         uses: actions/create-release@v1
+        if: ${{ github.event_name != 'release' }}
         id: create_release
         with:
           draft: false
@@ -38,7 +39,6 @@ jobs:
           body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        if: ${{ !(github.event_name == 'release') }}
 
       - name: upload pdf
         uses: actions/upload-release-asset@v1
