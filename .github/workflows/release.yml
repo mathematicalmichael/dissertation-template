@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: version
-        run: echo "::set-output name=version::$GITHUB.REF"
+        run: echo "::set-output name=version::$(date '+%Y-%m-%d')"
         id: version
 
       - name: install
