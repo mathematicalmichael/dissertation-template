@@ -21,8 +21,8 @@ jobs:
 
       - name: set name
         run: |
-          echo "::set-output name=rel_name::$(date '+%Y-%m-%d')"
-          if [[ ${{ github.ref_name }} == "main" ]]; then echo "::set-output name=tag_name::$(date '+%Y.%m.%d-%H:%M')"; else echo "::set-output name=tag_name::$GITHUB_REF_NAME"; fi
+          if [[ ${{ github.ref_name }} == "main" ]]; then echo "::set-output name=rel_name::$(date '+%Y-%m-%d %H.%M')"; else echo "::set-output name=rel_name::$GITHUB_REF_NAME"; fi
+          if [[ ${{ github.ref_name }} == "main" ]]; then echo "::set-output name=tag_name::$(date '+%Y.%m.%d-%H.%M')"; else echo "::set-output name=tag_name::$GITHUB_REF_NAME"; fi
         id: names
 
       - name: install
@@ -33,7 +33,6 @@ jobs:
 
       - name: release
         uses: actions/create-release@v1
-        if: ${{ github.event_name == 'push' }}
         id: create_release
         with:
           draft: false
