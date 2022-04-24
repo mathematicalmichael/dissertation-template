@@ -6,6 +6,8 @@ on:
       - 'main'
     tags:
       - '*'
+    paths-ignore:
+      - '.github/workflows/main.yml'
 
 jobs:
   build_release:
