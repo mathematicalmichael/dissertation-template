@@ -4,12 +4,14 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
+      - '*.md'
       - '.github/workflows/main.yml'
       - '.github/workflows/release.yml'
 
   pull_request:
     branches: [ main ]
     paths-ignore:
+      - '*.md'
       - '.github/workflows/main.yml'
       - '.github/workflows/release.yml'
 
