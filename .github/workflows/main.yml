@@ -3,9 +3,13 @@ name: CI
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/release.yml'
   pull_request:
     branches:
       - '*'
+    paths-ignore:
+      - '.github/workflows/release.yml'
   schedule:
       - cron: "0 0 1 * *"
 
